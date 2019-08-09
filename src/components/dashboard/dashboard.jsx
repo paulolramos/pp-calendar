@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./dashboard.module.css";
+import { container } from "./dashboard.module.css";
 
 export const Dashboard = () => {
   return (
-    <div className={styles.wrapper}>
+    <section className={container}>
       <h1>Dashboard</h1>
-    </div>
+    </section>
   );
 };

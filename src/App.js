@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Dashboard } from "./components/dashboard/dashboard";
+import { Calendar } from "./components/calendar/calendar";
 
 export const App = () => {
   const [appState] = useState({
@@ -8,16 +9,18 @@ export const App = () => {
     selectedDate: new Date(),
     yearInput: null,
     // currentPattern: getPattern(new Date().getFullYear()),
-    currentMonth: new Date().toLocaleDateString("en-us", { month: "short" }),
+    currentMonth: new Date().toLocaleDateString("en-us", {
+      month: "short",
+    }),
     monthNumber: new Date().getMonth() + 1,
-    yearNumber: new Date().getFullYear()
+    yearNumber: new Date().getFullYear(),
   });
-
   console.log("app state:", appState);
 
   return (
     <div className="App">
       <Dashboard />
+      <Calendar />
     </div>
   );
 };
