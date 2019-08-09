@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Dashboard } from "./components/dashboard/dashboard";
-import { Calendar } from "./components/calendar/calendar";
+import { getPattern } from "./BusinessLogic/functions";
+
+import { Dashboard } from "./components/Dashboard/Dashboard";
+import { Calendar } from "./components/Calendar/Calendar";
 
 export const App = () => {
-  const [appState] = useState({
+  const [appState, setAppState] = useState({
     today: new Date(),
     selectedDate: new Date(),
-    yearInput: null,
-    // currentPattern: getPattern(new Date().getFullYear()),
+    currentPattern: getPattern(new Date().getFullYear()),
     currentMonth: new Date().toLocaleDateString("en-us", {
       month: "short",
     }),
     monthNumber: new Date().getMonth() + 1,
     yearNumber: new Date().getFullYear(),
   });
-  console.log("app state:", appState);
+  // console.log("app state:", appState);
 
   return (
-    <div className="App">
-      <Dashboard />
-      <Calendar />
-    </div>
+    <main className="App">
+      <Dashboard {...appState} updateAppState={setAppState} />
+      <Calendar {...appState} updateAppState={setAppState} />
+    </main>
   );
 };
