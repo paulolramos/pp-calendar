@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Dashboard } from "./components/dashboard/dashboard";
 
-function App() {
+export const App = () => {
+  const [appState] = useState({
+    today: new Date(),
+    selectedDate: new Date(),
+    yearInput: null,
+    // currentPattern: getPattern(new Date().getFullYear()),
+    currentMonth: new Date().toLocaleDateString("en-us", { month: "short" }),
+    monthNumber: new Date().getMonth() + 1,
+    yearNumber: new Date().getFullYear()
+  });
+
+  console.log("app state:", appState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Dashboard />
     </div>
   );
-}
-
-export default App;
+};
