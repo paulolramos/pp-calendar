@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Search.module.css";
+import styles from "./search.module.css";
 import { updateDate } from "../../BusinessLogic/functions";
 
 export const Search = ({ updateAppState }) => {

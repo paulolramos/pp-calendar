@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import { getPattern } from "./BusinessLogic/functions";
 
-import { Dashboard } from "./components/Dashboard/Dashboard";
-import { Calendar } from "./components/Calendar/Calendar";
+import { Dashboard } from "./components/dashboard/dashboard";
+import { Calendar } from "./components/calendar/calendar";
 
 export const App = () => {
   const [appState, setAppState] = useState({

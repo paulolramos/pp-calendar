@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./LabelField.module.css";
+import styles from "./labelField.module.css";
 
 export const LabelField = ({ label, message }) => {
   return (

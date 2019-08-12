@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./TodayDate.module.css";
+import styles from "./todayDate.module.css";
 
 export const TodayDate = ({ selectedDate }) => {
   const dateFormatOptions = {

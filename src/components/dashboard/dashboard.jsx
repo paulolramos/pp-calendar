@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Dashboard.module.css";
+import styles from "./dashboard.module.css";
 import {
   formatSidebarDate,
   getDateOfMasterPayroll,
@@ -9,10 +9,10 @@ import {
   getDateOfDirectDeposit,
 } from "../../BusinessLogic/functions";
 
-import { TodayDate } from "../TodayDate/TodayDate";
-import { Search } from "../Search/Search";
+import { TodayDate } from "../todayDate/todayDate";
+import { Search } from "../search/search";
 import { ResetButton } from "../ResetButton/ResetButton";
-import { LabelField } from "../LabelField/LabelField";
+import { LabelField } from "../labelField/labelField";
 
 export const Dashboard = ({
   selectedDate,
