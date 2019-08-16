@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./dashboard.module.css";
+import { patterns } from "../../data";
 import {
   formatSidebarDate,
   getDateOfMasterPayroll,
@@ -22,6 +23,19 @@ export const Dashboard = ({
   currentPattern,
   updateAppState,
 }) => {
+  const pattern = currentPattern - 1;
+  const beginningMonth = new Date(
+    yearNumber,
+    patterns[pattern][currentMonth].beginningMonth - 1
+  ).toLocaleDateString("en-us", { month: "short" });
+  const { beginningDay } = patterns[pattern][currentMonth];
+  const endMonth = new Date(
+    yearNumber,
+    patterns[pattern][currentMonth].endMonth - 1
+  ).toLocaleDateString("en-us", { month: "short" });
+  const { endDay } = patterns[pattern][currentMonth];
+  const { workdays } = patterns[pattern][currentMonth];
+
   return (
     <section className={styles.container}>
       <div className={styles.col1}>
@@ -30,10 +44,13 @@ export const Dashboard = ({
         <ResetButton today={today} updateAppState={updateAppState} />
       </div>
       <div className={styles.col2}>
-        <LabelField label="Begins" message={"Jul 31"} />
-        <LabelField label="Ends" message={"Aug 29"} />
-        <LabelField label="Work Days" message={"22"} />
-        <LabelField label="Work Hours" message={"176"} />
+        <LabelField
+          label="Begins"
+          message={beginningMonth + " " + beginningDay}
+        />
+        <LabelField label="Ends" message={endMonth + " " + endDay} />
+        <LabelField label="Work Days" message={workdays} />
+        <LabelField label="Work Hours" message={workdays * 8} />
       </div>
       <div className={styles.col3}>
         <LabelField
