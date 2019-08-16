@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./dashboard.module.css";
 import { patterns } from "../../data";
 import {
-  formatSidebarDate,
+  formatToNumeric,
   getDateOfMasterPayroll,
   getDateOfMasterPayday,
   getPriorWorkday,
@@ -55,31 +55,31 @@ export const Dashboard = ({
       <div className={styles.col3}>
         <LabelField
           label="Master Mail/Transfer"
-          message={formatSidebarDate(
+          message={formatToNumeric(
             getDateOfMasterTransfer(currentMonth, yearNumber)
           )}
         />
         <LabelField
           label="Release Master"
-          message={formatSidebarDate(
+          message={formatToNumeric(
             getPriorWorkday(getDateOfMasterPayday(currentMonth, yearNumber))
           )}
         />
         <LabelField
           label="Master Payday"
-          message={formatSidebarDate(
+          message={formatToNumeric(
             getDateOfMasterPayday(currentMonth, yearNumber)
           )}
         />
         <LabelField
           label="Master Issue"
-          message={formatSidebarDate(
+          message={formatToNumeric(
             getDateOfMasterPayroll(currentMonth, yearNumber)
           )}
         />
         <LabelField
           label="Direct Deposit"
-          message={formatSidebarDate(
+          message={formatToNumeric(
             getDateOfDirectDeposit(currentMonth, yearNumber)
           )}
         />

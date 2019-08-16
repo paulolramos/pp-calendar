@@ -15,7 +15,7 @@ const updateDate = state => date => ({
 const increment = date => new Date(date.setDate(date.getDate() + 1));
 const decrement = date => new Date(date.setDate(date.getDate() - 1));
 
-const formatSidebarDate = date =>
+const formatToNumeric = date =>
   date.toLocaleDateString("en-us", {
     year: "numeric",
     month: "numeric",
@@ -370,7 +370,7 @@ const keyboardNavigation = e => {
 
 export {
   updateDate,
-  formatSidebarDate,
+  formatToNumeric,
   getPattern,
   getPriorWorkday,
   getMidmonthCutoff,
