@@ -22,6 +22,28 @@ const formatToNumeric = date =>
     day: "numeric",
   });
 
+const formatToShortDate = (currentPattern, currentMonth, yearNumber) => {
+  const pattern = currentPattern - 1;
+  const beginningMonth = new Date(
+    yearNumber,
+    patterns[pattern][currentMonth].beginningMonth - 1
+  ).toLocaleDateString("en-us", { month: "short" });
+  const { beginningDay } = patterns[pattern][currentMonth];
+  const endMonth = new Date(
+    yearNumber,
+    patterns[pattern][currentMonth].endMonth - 1
+  ).toLocaleDateString("en-us", { month: "short" });
+  const { endDay } = patterns[pattern][currentMonth];
+  const { workdays } = patterns[pattern][currentMonth];
+
+  return {
+    begins: beginningMonth + " " + beginningDay,
+    ends: endMonth + " " + endDay,
+    workdays: String(workdays),
+    workhours: (workdays * 8).toString(),
+  };
+};
+
 const isWeekend = date => {
   let weekend;
   const dayOfWeek = date.getDay();
@@ -371,6 +393,7 @@ const keyboardNavigation = e => {
 export {
   updateDate,
   formatToNumeric,
+  formatToShortDate,
   getPattern,
   getPriorWorkday,
   getMidmonthCutoff,
