@@ -33,7 +33,7 @@ export const Calendar = ({
   };
 
   return (
-    <section className="container">
+    <section className="calendar-container">
       <ReactCalendar
         value={selectedDate}
         className="calendar"
