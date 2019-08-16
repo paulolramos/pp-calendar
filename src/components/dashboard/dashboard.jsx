@@ -43,13 +43,13 @@ export const Dashboard = ({
           )}
         />
         <LabelField
-          label="Master Payday"
+          label="Release Master"
           message={formatSidebarDate(
             getPriorWorkday(getDateOfMasterPayday(currentMonth, yearNumber))
           )}
         />
         <LabelField
-          label="Release Master"
+          label="Master Payday"
           message={formatSidebarDate(
             getDateOfMasterPayday(currentMonth, yearNumber)
           )}
