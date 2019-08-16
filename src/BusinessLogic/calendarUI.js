@@ -32,7 +32,7 @@ import {
 const standardHolidayMarkup = name => (
   <div
     className="holiday"
-    key="h"
+    key="holiday"
     title={`${name}: This is a standard CSU Holiday`}
   >
     Holiday*
@@ -41,92 +41,77 @@ const standardHolidayMarkup = name => (
 const MoveableHolidayMarkup = name => (
   <div
     className="moveable-holiday"
-    key="h"
+    key="holiday"
     title={`${name}: This holiday may be moved.`}
   >
     Holiday*
   </div>
 );
 const masterCutoffMarkup = (
-  <div className="master-cutoff" key="m">
+  <div className="master-cutoff" key="master-cutoff">
     Payroll Cutoff
   </div>
 );
 const noCycleMarkup = (
-  <div className="no-cycle" key="n">
+  <div className="no-cycle" key="no-cycle">
     No Cycle
   </div>
 );
 const greenCycleMarkup = (
-  <div className="green-cycle" key="g">
+  <div className="green-cycle" key="green-cycle">
     Green Cycle
   </div>
 );
 const beginDateMarkup = (
-  <div className="begin-date" key="b">
+  <div className="begin-date" key="begin">
     PP Begins
   </div>
 );
 const endDateMarkup = (
-  <div className="end-date" key="e">
+  <div className="end-date" key="end">
     PP Ends
   </div>
 );
-const paydayMarkdown = (
-  <div className="payday" key="p">
+const paydayMarkup = (
+  <div className="payday" key="payday">
     Pay Day
   </div>
 );
-const directDepositMarkdown = (
-  <div className="direct-deposit" key="dd">
+const directDepositMarkup = (
+  <div className="direct-deposit" key="direct-deposit">
     Direct Deposit
   </div>
 );
 
 export const UI = {
   renderHolidays: (date, year) => {
-    const holidayNames = [
-      "New Year's Day",
-      "Martin Luther King, Jr. Day",
-      "President's Day",
-      "Cesar Chavez Day",
-      "Memorial Day",
-      "Independence Day",
-      "Labor Day",
-      "Veteran's Day",
-      "Thanksgiving Day",
-      "Admission's Day",
-      "Christmas",
-      "Columbus Day",
-      "Lincoln's Birthday",
-    ];
     switch (date.valueOf()) {
       case newYears(year).valueOf():
-        return standardHolidayMarkup(holidayNames[0]);
+        return standardHolidayMarkup("New Year's Day");
       case martinLutherKing(year).valueOf():
-        return standardHolidayMarkup(holidayNames[1]);
+        return standardHolidayMarkup("Martin Luther King, Jr. Day");
       case presidents(year).valueOf():
-        return MoveableHolidayMarkup(holidayNames[2]);
+        return MoveableHolidayMarkup("President's Day");
       case cesarChavez(year).valueOf():
-        return standardHolidayMarkup(holidayNames[3]);
+        return standardHolidayMarkup("Cesar Chavez Day");
       case memorial(year).valueOf():
-        return MoveableHolidayMarkup(holidayNames[4]);
+        return MoveableHolidayMarkup("Memorial Day");
       case independence(year).valueOf():
-        return standardHolidayMarkup(holidayNames[5]);
+        return standardHolidayMarkup("Independence Day");
       case labor(year).valueOf():
-        return standardHolidayMarkup(holidayNames[6]);
+        return standardHolidayMarkup("Labor Day");
       case veterans(year).valueOf():
-        return standardHolidayMarkup(holidayNames[7]);
+        return standardHolidayMarkup("Veteran's Day");
       case thanksgiving(year).valueOf():
-        return standardHolidayMarkup(holidayNames[8]);
+        return standardHolidayMarkup("Thanksgiving Day");
       case admissions(year).valueOf():
-        return MoveableHolidayMarkup(holidayNames[9]);
+        return MoveableHolidayMarkup("Admission's Day");
       case christmas(year).valueOf():
-        return standardHolidayMarkup(holidayNames[10]);
+        return standardHolidayMarkup("Christmas");
       case indigenousPeoples(year).valueOf():
-        return MoveableHolidayMarkup(holidayNames[11]);
+        return MoveableHolidayMarkup("Columbus Day");
       case lincoln(year).valueOf():
-        return MoveableHolidayMarkup(holidayNames[12]);
+        return MoveableHolidayMarkup("Lincoln's Birthday");
       default:
         return null;
     }
@@ -167,13 +152,12 @@ export const UI = {
   },
   renderPayday: (date, month, year) => {
     const payday = getDateOfMasterPayday(month, year);
-    if (date.valueOf() === payday.valueOf()) return paydayMarkdown;
+    if (date.valueOf() === payday.valueOf()) return paydayMarkup;
     return null;
   },
   renderDirectDeposit: (date, month, year) => {
     const directDeposit = getDateOfDirectDeposit(month, year);
-    if (date.valueOf() === directDeposit.valueOf())
-      return directDepositMarkdown;
+    if (date.valueOf() === directDeposit.valueOf()) return directDepositMarkup;
     return null;
   },
 };
