@@ -31,7 +31,7 @@ import {
 
 const standardHolidayMarkup = name => (
   <div
-    className="holiday"
+    className="calendar-label holiday"
     key="holiday"
     title={`${name}: This is a standard CSU Holiday`}
   >
@@ -40,7 +40,7 @@ const standardHolidayMarkup = name => (
 );
 const MoveableHolidayMarkup = name => (
   <div
-    className="moveable-holiday"
+    className="calendar-label moveable-holiday"
     key="holiday"
     title={`${name}: This holiday may be moved.`}
   >
@@ -48,37 +48,37 @@ const MoveableHolidayMarkup = name => (
   </div>
 );
 const masterCutoffMarkup = (
-  <div className="master-cutoff" key="master-cutoff">
+  <div className="calendar-label master-cutoff" key="master-cutoff">
     Payroll Cutoff
   </div>
 );
 const noCycleMarkup = (
-  <div className="no-cycle" key="no-cycle">
+  <div className="calendar-label no-cycle" key="no-cycle">
     No Cycle
   </div>
 );
 const greenCycleMarkup = (
-  <div className="green-cycle" key="green-cycle">
+  <div className="calendar-label green-cycle" key="green-cycle">
     Green Cycle
   </div>
 );
 const beginDateMarkup = (
-  <div className="begin-date" key="begin">
+  <div className="calendar-label begin-date" key="begin">
     PP Begins
   </div>
 );
 const endDateMarkup = (
-  <div className="end-date" key="end">
+  <div className="calendar-label end-date" key="end">
     PP Ends
   </div>
 );
 const paydayMarkup = (
-  <div className="payday" key="payday">
+  <div className="calendar-label payday" key="payday">
     Pay Day
   </div>
 );
 const directDepositMarkup = (
-  <div className="direct-deposit" key="direct-deposit">
+  <div className="calendar-label direct-deposit" key="direct-deposit">
     Direct Deposit
   </div>
 );

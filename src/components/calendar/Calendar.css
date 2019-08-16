@@ -3,8 +3,53 @@
 }
 
 .calendar {
-  font-size: 24px;
+  font-size: 26px;
   width: 100%;
+}
+
+.calendar-label {
+  margin: 4px;
+  padding: 5px 5px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  color: rgb(255, 255, 255);
+}
+
+.holiday {
+  background-color: rgb(22, 107, 177);
+}
+
+.moveable-holiday {
+  background-color: rgb(22, 107, 177);
+}
+
+.master-cutoff {
+  background-color: rgb(0, 0, 0);
+}
+
+.no-cycle {
+  background-color: rgb(167, 13, 4);
+}
+
+.green-cycle {
+  background-color: rgb(0, 112, 8);
+}
+
+.begin-date {
+  background-color: rgb(3, 130, 12);
+}
+
+.end-date {
+  background-color: rgb(217, 0, 0);
+}
+
+.payday {
+  background-color: rgb(115, 83, 141);
+}
+
+.direct-deposit {
+  background-color: rgb(210, 10, 100);
 }
 
 /* CALENDAR NAVIGATION */
@@ -12,6 +57,10 @@
 .react-calendar__navigation button[disabled] {
   color: black !important;
   background-color: white !important;
+}
+
+.react-calendar__navigation__label {
+  font-size: 22px;
 }
 
 .react-calendar__navigation {
@@ -25,7 +74,7 @@
 /* MAIN CALENDER UI */
 /* decreases calender digits font */
 .react-calendar__month-view__days__day {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /* styles weekends with grey */
