@@ -1,25 +1,24 @@
-import { isWeekend, getPayPeriodOfDate } from "./functions";
-
-Date.prototype.Increment = function() {
-  this.setDate(this.getDate() + 1);
-};
-Date.prototype.Decrement = function() {
-  this.setDate(this.getDate() - 1);
-};
+import {
+  isWeekend,
+  getPayPeriodOfDate,
+  increment,
+  decrement,
+} from "./functions";
 
 const newYears = year => {
-  const newYearsDate = new Date(year, 0, 1);
+  let newYearsDate = new Date(year, 0, 1);
   const newYearsDayOfTheWeek = newYearsDate.getDay();
-  if (newYearsDayOfTheWeek === 0) newYearsDate.Increment();
+  if (newYearsDayOfTheWeek === 0) {
+    newYearsDate = increment(newYearsDate);
+  }
   return newYearsDate;
 };
 
 const martinLutherKing = year => {
-  const mlkDate = new Date(year, 0, 1);
+  let mlkDate = new Date(year, 0, 1);
   let mlkDayOfTheWeek = mlkDate.getDay();
-
   while (mlkDayOfTheWeek !== 1) {
-    mlkDate.Increment();
+    mlkDate = increment(mlkDate);
     mlkDayOfTheWeek = mlkDate.getDay();
   }
   mlkDate.setDate(mlkDate.getDate() + 14);
@@ -28,11 +27,10 @@ const martinLutherKing = year => {
 
 // CSUCO moves this day to December break
 const presidents = year => {
-  const presidentsDate = new Date(year, 1, 1);
+  let presidentsDate = new Date(year, 1, 1);
   let presidentsDayOfTheWeek = presidentsDate.getDay();
-
   while (presidentsDayOfTheWeek !== 1) {
-    presidentsDate.Increment();
+    presidentsDate = increment(presidentsDate);
     presidentsDayOfTheWeek = presidentsDate.getDay();
   }
   presidentsDate.setDate(presidentsDate.getDate() + 14);
@@ -40,18 +38,19 @@ const presidents = year => {
 };
 
 const cesarChavez = year => {
-  const cesarChavezDate = new Date(year, 2, 31);
+  let cesarChavezDate = new Date(year, 2, 31);
   const cesarChavezDayOfTheWeek = cesarChavezDate.getDay();
-  if (cesarChavezDayOfTheWeek === 0) cesarChavezDate.Increment();
+  if (cesarChavezDayOfTheWeek === 0) {
+    cesarChavezDate = increment(cesarChavezDate);
+  }
   return cesarChavezDate;
 };
 
 const memorial = year => {
-  const memorialDate = new Date(year, 5, 1);
+  let memorialDate = new Date(year, 5, 1);
   let memorialDayOfTheWeek = memorialDate.getDay();
-
   while (memorialDayOfTheWeek !== 1) {
-    memorialDate.Increment();
+    memorialDate = increment(memorialDate);
     memorialDayOfTheWeek = memorialDate.getDay();
   }
   memorialDate.setDate(memorialDate.getDate() - 7);
@@ -59,41 +58,40 @@ const memorial = year => {
 };
 
 const independence = year => {
-  const independenceDate = new Date(year, 6, 4);
+  let independenceDate = new Date(year, 6, 4);
   const independenceDayOfTheWeek = independenceDate.getDay();
-
-  if (independenceDayOfTheWeek === 0) independenceDate.Increment();
+  if (independenceDayOfTheWeek === 0) {
+    independenceDate = increment(independenceDate);
+  }
   return independenceDate;
 };
 
 const labor = year => {
-  const laborDate = new Date(year, 8, 1);
+  let laborDate = new Date(year, 8, 1);
   let laborDayOfTheWeek = laborDate.getDay();
-
   while (laborDayOfTheWeek !== 1) {
-    laborDate.Increment();
+    laborDate = increment(laborDate);
     laborDayOfTheWeek = laborDate.getDay();
   }
   return laborDate;
 };
 
 const veterans = year => {
-  const veteransDate = new Date(year, 10, 11);
+  let veteransDate = new Date(year, 10, 11);
   const veteransDayOfTheWeek = veteransDate.getDay();
   if (veteransDayOfTheWeek === 6) {
-    veteransDate.Decrement();
+    veteransDate = decrement(veteransDate);
   } else if (veteransDayOfTheWeek === 0) {
-    veteransDate.Increment();
+    veteransDate = increment(veteransDate);
   }
   return veteransDate;
 };
 
 const thanksgiving = year => {
-  const thanksgivingDate = new Date(year, 10, 1);
+  let thanksgivingDate = new Date(year, 10, 1);
   let thanksgivingDayOfTheWeek = thanksgivingDate.getDay();
-
   while (thanksgivingDayOfTheWeek !== 4) {
-    thanksgivingDate.Increment();
+    thanksgivingDate = increment(thanksgivingDate);
     thanksgivingDayOfTheWeek = thanksgivingDate.getDay();
   }
   thanksgivingDate.setDate(thanksgivingDate.getDate() + 21);
@@ -102,26 +100,27 @@ const thanksgiving = year => {
 
 // CSU specific (Day after Thanksgiving)
 const admissions = year => {
-  const admissionsDate = thanksgiving(year);
-  admissionsDate.Increment();
+  let admissionsDate = thanksgiving(year);
+  admissionsDate = increment(admissionsDate);
   return admissionsDate;
 };
 
 // ! this doesn't check if christmas lands on saturday
 const christmas = year => {
-  const christmasDate = new Date(year, 11, 25);
+  let christmasDate = new Date(year, 11, 25);
   const christmasDayOfTheWeek = christmasDate.getDay();
-  if (christmasDayOfTheWeek === 0) christmasDate.Increment();
+  if (christmasDayOfTheWeek === 0) {
+    christmasDate = increment(christmasDate);
+  }
   return christmasDate;
 };
 
 // formerly columbus' day
 const indigenousPeoples = year => {
-  const indigenousPeoplesDate = new Date(year, 9, 1);
+  let indigenousPeoplesDate = new Date(year, 9, 1);
   let indigenousPeoplesDayOfTheWeek = indigenousPeoplesDate.getDay();
-
   while (indigenousPeoplesDayOfTheWeek !== 1) {
-    indigenousPeoplesDate.Increment();
+    indigenousPeoplesDate = increment(indigenousPeoplesDate);
     indigenousPeoplesDayOfTheWeek = indigenousPeoplesDate.getDay();
   }
   indigenousPeoplesDate.setDate(indigenousPeoplesDate.getDate() + 7);
@@ -131,21 +130,19 @@ const indigenousPeoples = year => {
 // Actual date lands on Feb 12 of every year
 const lincoln = year => new Date(year, 1, 12);
 
-const getAllHolidays = year => {
-  const holidays = [];
-  holidays[0] = newYears(year);
-  holidays[1] = martinLutherKing(year);
-  holidays[2] = presidents(year);
-  holidays[3] = cesarChavez(year);
-  holidays[4] = memorial(year);
-  holidays[5] = independence(year);
-  holidays[6] = labor(year);
-  holidays[7] = veterans(year);
-  holidays[8] = thanksgiving(year);
-  holidays[9] = admissions(year);
-  holidays[10] = christmas(year);
-  return holidays;
-};
+const getAllHolidays = year => [
+  newYears(year),
+  martinLutherKing(year),
+  presidents(year),
+  cesarChavez(year),
+  memorial(year),
+  independence(year),
+  labor(year),
+  veterans(year),
+  thanksgiving(year),
+  admissions(year),
+  christmas(year),
+];
 
 const getHolidaysForMonth = (payperiod, year) => {
   let holidayCount = 0;

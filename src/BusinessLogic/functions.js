@@ -12,14 +12,8 @@ const updateDate = state => date => ({
   yearNumber: date.getFullYear(),
 });
 
-// const increment = date => new Date(date.setDate(date.getDate() + 1));
-// const decrement = date => new Date(date.setDate(date.getDate() - 1));
-Date.prototype.Increment = function() {
-  this.setDate(this.getDate() + 1);
-};
-Date.prototype.Decrement = function() {
-  this.setDate(this.getDate() - 1);
-};
+const increment = date => new Date(date.setDate(date.getDate() + 1));
+const decrement = date => new Date(date.setDate(date.getDate() - 1));
 
 const formatSidebarDate = date =>
   date.toLocaleDateString("en-us", {
@@ -41,21 +35,17 @@ const isWeekend = date => {
 };
 
 function getPriorWorkday(date) {
-  const newDate = new Date(date);
-
-  newDate.Decrement();
+  let newDate = decrement(new Date(date));
   while (isWeekend(newDate) || checkIfHoliday(newDate)) {
-    newDate.Decrement();
+    newDate = decrement(newDate);
   }
   return newDate;
 }
 
 function getWorkdayAfter(date) {
-  const newDate = new Date(date);
-
-  newDate.Increment();
+  let newDate = increment(new Date(date));
   while (isWeekend(newDate) || checkIfHoliday(newDate)) {
-    newDate.Increment();
+    newDate = increment(newDate);
   }
   return newDate;
 }
@@ -172,17 +162,17 @@ const getBusinessMidMonth = (payperiod, year) => {
 // MASTER PAYROLL CALCULATIONS
 
 const getDateOfMasterPayroll = (month, year) => {
-  const masterPayroll = getLastDateOfPayPeriod(month, year);
+  let masterPayroll = getLastDateOfPayPeriod(month, year);
   if (masterPayroll.getDate() !== 1) {
-    masterPayroll.Increment();
+    masterPayroll = increment(masterPayroll);
   }
   return masterPayroll;
 };
 
 const getDateOfMasterPayday = (month, year) => {
   let masterPayday;
-  const endofPayPeriod = getLastDateOfPayPeriod(month, year);
-  endofPayPeriod.Increment();
+  let endofPayPeriod = getLastDateOfPayPeriod(month, year);
+  endofPayPeriod = increment(endofPayPeriod);
   const lastWorkdayInPayPeriod = getPriorWorkday(endofPayPeriod);
   const masterPayroll = getDateOfMasterPayroll(month, year);
 
@@ -401,4 +391,6 @@ export {
   getMasterGreenCycles,
   isGreenCycle,
   keyboardNavigation,
+  increment,
+  decrement,
 };
