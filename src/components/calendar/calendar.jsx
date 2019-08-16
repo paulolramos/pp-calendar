@@ -19,7 +19,7 @@ export const Calendar = ({
     updateAppState(state => updateDate(state)(activeStartDate));
 
   const addCalenderElements = ({ date, view }) => {
-    if (view === "month") {
+    while (view === "month") {
       return [
         UI.renderHolidays(date, yearNumber),
         UI.renderMasterCutoff(date, monthNumber, currentMonth, yearNumber),
@@ -28,9 +28,7 @@ export const Calendar = ({
         UI.renderBeginEndDates(date, currentPattern, currentMonth, yearNumber),
         UI.renderPayday(date, currentMonth, yearNumber),
         UI.renderDirectDeposit(date, currentMonth, yearNumber),
-      ].filter(itemToRender => itemToRender !== null);
-    } else {
-      return null;
+      ];
     }
   };
 
