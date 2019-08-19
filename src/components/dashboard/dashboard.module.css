@@ -1,11 +1,14 @@
 .container {
   border: 1px solid black;
+  padding: 25px;
   display: grid;
   grid-template-columns: 300px 300px 300px;
 }
 
 .col1 {
   justify-self: start;
+  display: grid;
+  grid-template-rows: auto auto auto;
 }
 
 .col2 {
@@ -19,12 +22,12 @@
 }
 
 /* selects all children within col2 */
-.col2 * {
-  padding: 10px;
+.col2 div {
+  padding: 20px;
 }
 
 .col3 {
-  justify-self: center;
+  justify-self: start;
   align-self: center;
   display: grid;
   grid-template-columns: auto auto;
