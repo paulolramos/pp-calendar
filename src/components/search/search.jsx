@@ -6,6 +6,9 @@ export const Search = ({ updateAppState }) => {
   const onSubmit = e => {
     e.preventDefault();
     const value = new Date(document.getElementById("search").value);
+    if (value.toString() === "Invalid Date") {
+      return console.warn("valid date not provided");
+    }
     const newDate = new Date(value.setDate(value.getDate() + 1));
     updateAppState(state => updateDate(state)(newDate));
   };
