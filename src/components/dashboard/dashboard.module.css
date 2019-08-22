@@ -3,6 +3,7 @@
   padding: 25px;
   display: grid;
   grid-template-columns: auto auto auto;
+  background-color: rgb(243, 243, 243);
 }
 
 .col1 {
