@@ -1,6 +1,6 @@
 .button {
-  color: white;
-  background-color: rgb(167, 13, 4);
+  color: white !important;
+  background-color: rgb(167, 13, 4) !important;
   border: none;
   border-radius: 5px;
   letter-spacing: 1px;
@@ -11,4 +11,6 @@
 
 .button:hover {
   cursor: pointer;
+  color: white !important;
+  background-color: rgb(167, 13, 4) !important;
 }

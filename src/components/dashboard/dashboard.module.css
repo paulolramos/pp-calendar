@@ -10,6 +10,7 @@
   justify-self: start;
   display: grid;
   grid-template-rows: auto auto auto;
+  padding-right: 30px;
 }
 
 .col2 {
@@ -17,7 +18,8 @@
   justify-self: start;
   display: grid;
   grid-template-columns: auto auto;
-  padding-left: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* selects all divs within col2 */

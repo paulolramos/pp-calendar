@@ -1,12 +1,6 @@
 .label {
   display: block;
-  font-size: 13px;
   letter-spacing: 1px;
   text-decoration: underline;
   padding-bottom: 6px;
-  /* text-transform: uppercase; */
-}
-
-.message {
-  font-size: 24px;
 }
