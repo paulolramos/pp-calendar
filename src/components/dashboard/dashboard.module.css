@@ -1,8 +1,8 @@
 .container {
-  border: 1px solid black;
+  border: 1px solid #a0a096;
   padding: 25px;
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: auto auto auto;
 }
 
 .col1 {
@@ -12,30 +12,26 @@
 }
 
 .col2 {
-  justify-self: center;
-  align-self: center;
+  border-left: 1px solid #a0a096;
+  justify-self: start;
   display: grid;
   grid-template-columns: auto auto;
-  /* padding-left: 10px;
-  margin-right: 100px;
-  border-left: 1px solid black; */
+  padding-left: 30px;
 }
 
-/* selects all children within col2 */
+/* selects all divs within col2 */
 .col2 div {
-  padding: 20px;
+  padding: 20px 15px 20px 20px;
 }
 
 .col3 {
-  justify-self: start;
-  align-self: center;
+  border-left: 1px solid #a0a096;
   display: grid;
   grid-template-columns: auto auto;
-  /* padding-left: 10px;
-  margin-right: 120px;
-  border-left: 1px solid black; */
+  padding-left: 30px;
 }
 
+/* selects all elements within col2 */
 .col3 * {
   padding: 3px;
 }
