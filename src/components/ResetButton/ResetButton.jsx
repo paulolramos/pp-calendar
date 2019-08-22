@@ -8,7 +8,7 @@ export const ResetButton = ({ today, updateAppState }) => {
       className={styles.button}
       onClick={() => updateAppState(state => updateDate(state)(today))}
     >
-      Reset
+      RESET
     </button>
   );
 };
