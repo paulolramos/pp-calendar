@@ -3,7 +3,7 @@ import styles from "./labelField.module.css";
 
 export const LabelField = ({ label, message }) => {
   return (
-    <div className={styles.container}>
+    <div>
       <label className={styles.label} htmlFor="message">
         {label}
       </label>
