@@ -10,7 +10,7 @@ export const TodayDate = ({ selectedDate }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       <span className={styles.date}>
         {selectedDate.toLocaleDateString("en-us", dateFormatOptions)}
       </span>
