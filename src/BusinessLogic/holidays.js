@@ -8,7 +8,10 @@ import {
 const newYears = year => {
   let newYearsDate = new Date(year, 0, 1);
   const newYearsDayOfTheWeek = newYearsDate.getDay();
-  if (newYearsDayOfTheWeek === 0) {
+
+  if (newYearsDayOfTheWeek === 6) {
+    newYearsDate = decrement(newYearsDate);
+  } else if (newYearsDayOfTheWeek === 0) {
     newYearsDate = increment(newYearsDate);
   }
   return newYearsDate;
@@ -17,10 +20,12 @@ const newYears = year => {
 const martinLutherKing = year => {
   let mlkDate = new Date(year, 0, 1);
   let mlkDayOfTheWeek = mlkDate.getDay();
+
   while (mlkDayOfTheWeek !== 1) {
     mlkDate = increment(mlkDate);
     mlkDayOfTheWeek = mlkDate.getDay();
   }
+
   mlkDate.setDate(mlkDate.getDate() + 14);
   return mlkDate;
 };
@@ -29,6 +34,7 @@ const martinLutherKing = year => {
 const presidents = year => {
   let presidentsDate = new Date(year, 1, 1);
   let presidentsDayOfTheWeek = presidentsDate.getDay();
+
   while (presidentsDayOfTheWeek !== 1) {
     presidentsDate = increment(presidentsDate);
     presidentsDayOfTheWeek = presidentsDate.getDay();
@@ -40,7 +46,10 @@ const presidents = year => {
 const cesarChavez = year => {
   let cesarChavezDate = new Date(year, 2, 31);
   const cesarChavezDayOfTheWeek = cesarChavezDate.getDay();
-  if (cesarChavezDayOfTheWeek === 0) {
+
+  if (cesarChavezDayOfTheWeek === 6) {
+    cesarChavezDate = decrement(cesarChavezDate);
+  } else if (cesarChavezDayOfTheWeek === 0) {
     cesarChavezDate = increment(cesarChavezDate);
   }
   return cesarChavezDate;
@@ -49,6 +58,7 @@ const cesarChavez = year => {
 const memorial = year => {
   let memorialDate = new Date(year, 5, 1);
   let memorialDayOfTheWeek = memorialDate.getDay();
+
   while (memorialDayOfTheWeek !== 1) {
     memorialDate = increment(memorialDate);
     memorialDayOfTheWeek = memorialDate.getDay();
@@ -60,7 +70,10 @@ const memorial = year => {
 const independence = year => {
   let independenceDate = new Date(year, 6, 4);
   const independenceDayOfTheWeek = independenceDate.getDay();
-  if (independenceDayOfTheWeek === 0) {
+
+  if (independenceDayOfTheWeek === 6) {
+    independenceDate = decrement(independenceDate);
+  } else if (independenceDayOfTheWeek === 0) {
     independenceDate = increment(independenceDate);
   }
   return independenceDate;
@@ -69,6 +82,7 @@ const independence = year => {
 const labor = year => {
   let laborDate = new Date(year, 8, 1);
   let laborDayOfTheWeek = laborDate.getDay();
+
   while (laborDayOfTheWeek !== 1) {
     laborDate = increment(laborDate);
     laborDayOfTheWeek = laborDate.getDay();
@@ -79,6 +93,7 @@ const labor = year => {
 const veterans = year => {
   let veteransDate = new Date(year, 10, 11);
   const veteransDayOfTheWeek = veteransDate.getDay();
+
   if (veteransDayOfTheWeek === 6) {
     veteransDate = decrement(veteransDate);
   } else if (veteransDayOfTheWeek === 0) {
@@ -90,6 +105,7 @@ const veterans = year => {
 const thanksgiving = year => {
   let thanksgivingDate = new Date(year, 10, 1);
   let thanksgivingDayOfTheWeek = thanksgivingDate.getDay();
+
   while (thanksgivingDayOfTheWeek !== 4) {
     thanksgivingDate = increment(thanksgivingDate);
     thanksgivingDayOfTheWeek = thanksgivingDate.getDay();
@@ -105,11 +121,13 @@ const admissions = year => {
   return admissionsDate;
 };
 
-// ! this doesn't check if christmas lands on saturday
 const christmas = year => {
   let christmasDate = new Date(year, 11, 25);
   const christmasDayOfTheWeek = christmasDate.getDay();
-  if (christmasDayOfTheWeek === 0) {
+
+  if (christmasDayOfTheWeek === 6) {
+    christmasDate = decrement(christmasDate);
+  } else if (christmasDayOfTheWeek === 0) {
     christmasDate = increment(christmasDate);
   }
   return christmasDate;
@@ -119,6 +137,7 @@ const christmas = year => {
 const indigenousPeoples = year => {
   let indigenousPeoplesDate = new Date(year, 9, 1);
   let indigenousPeoplesDayOfTheWeek = indigenousPeoplesDate.getDay();
+
   while (indigenousPeoplesDayOfTheWeek !== 1) {
     indigenousPeoplesDate = increment(indigenousPeoplesDate);
     indigenousPeoplesDayOfTheWeek = indigenousPeoplesDate.getDay();
@@ -128,7 +147,17 @@ const indigenousPeoples = year => {
 };
 
 // Actual date lands on Feb 12 of every year
-const lincoln = year => new Date(year, 1, 12);
+const lincoln = year => {
+  let lincolnDate = new Date(year, 1, 12);
+  const lincolnDayOfTheWeek = lincolnDate.getDay();
+
+  if (lincolnDayOfTheWeek === 6) {
+    lincolnDate = decrement(lincolnDate);
+  } else if (lincolnDayOfTheWeek === 0) {
+    lincolnDate = increment(lincolnDate);
+  }
+  return lincolnDate;
+};
 
 const getAllHolidays = year => [
   newYears(year),
